@@ -37,7 +37,7 @@ Let's try it!
 ###Controller
 
 1. Create a simple controller using your favorite text editor, name it Accounts.php and save it in the controllers folder. 
-
+    ```
     class Accounts extends Slytherin\Controller
     {
         public function index()
@@ -46,6 +46,7 @@ Let's try it!
         }
 
     }
+    ```
     
 2. Visit your site and it should display "Hello World!".
 
@@ -56,7 +57,7 @@ Let's try it!
 ###Model
 
 1. Create a Account.php using your text editor and save it in the model folder.
-
+    ```
     class Account
     {
         public function all()
@@ -69,19 +70,22 @@ Let's try it!
             return $result;
         }
     }
+    ```
 
 2. Load your model in the Accounts.php controller constructor.
-    
+    ```
     public function __construct(\Account $Account)
     {
 
     }
+    ```
 
 3. To utilize your model, declare the following code in your index method or any method where you want to use it.
-    
+    ```
     $Account = new Account();
 
     $data['accounts'] = $Account->all();
+    ```
 
 4. To view the returned results refer to the *View* section.
 
@@ -89,6 +93,6 @@ Let's try it!
 
 1. To load a particular view file, use the following function and it in the method: 
 
-    Slytherin\View::render('name of the view file', 'variable where the data is stored');    
+    ```Slytherin\View::render('name of the view file', 'variable where the data is stored');```
 
 2. You could use ```use Slytherin\View as View;``` to shorten the call of the class.
