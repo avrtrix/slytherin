@@ -91,7 +91,7 @@ Let's try it!
 
 ###View
 
-1. To load a particular view file, use the following function and it in the method: 
+1. To load a particular view file, use the following function inside the method: 
 
     ```Slytherin\View::render('name of the view file', 'variable where the data is stored');```
 
