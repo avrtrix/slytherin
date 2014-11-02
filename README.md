@@ -52,7 +52,7 @@ Let's try it!
 
 3. Make sure your controller extends the parent controller class so that it can inherit all its functions.
 
-4. You could use ```use Slytherin\Controller as Controller;``` to shorten the call of the class.
+4. You could use ```use Slytherin\Controller;``` to shorten the call of the class.
 
 ###Model
 
@@ -62,29 +62,31 @@ Let's try it!
     {
         public function all()
         {
-            $result = array(
+            $data = array(
                 'Angel',
                 'Rougin'
             );
 
-            return $result;
+            return $data;
         }
     }
     ```
 
 2. Load your model in the Accounts.php controller constructor.
-    ```
-    public function __construct(\Account $Account)
-    {
 
+    ```
+    protected $account;
+
+    public function __construct(\Account $account)
+    {
+		$this->_account = $account;
     }
     ```
 
 3. To utilize your model, declare the following code in your index method or any method where you want to use it.
     ```
-    $Account = new Account();
-
-    $data['accounts'] = $Account->all();
+    $data['accounts'] = $this->_account->all();
+    
     ```
 
 4. To view the returned results refer to the *View* section.
@@ -95,4 +97,4 @@ Let's try it!
 
     ```Slytherin\View::render('name of the view file', 'variable where the data is stored');```
 
-2. You could use ```use Slytherin\View as View;``` to shorten the call of the class.
+2. You could use ```use Slytherin\View;``` to shorten the call of the class.
